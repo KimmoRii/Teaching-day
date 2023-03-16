@@ -43,18 +43,23 @@ public class PlayerActions : MonoBehaviour
     private void OperateDoor()
     {
 
-        if (Input.GetKeyDown("e"))
+        /*if (Input.GetKeyDown("e"))
         {
             if (door.GetComponent<OpenDoor>().isOpen == false)
             {
                 door.GetComponent<OpenDoor>().isOpen = true;
                 Debug.Log("Player opens a door.");
             }
-            
+            else
             {
                 door.GetComponent<OpenDoor>().isOpen = false;
                 Debug.Log("Player closes a door.");
             }
+        }*/
+
+        if (Input.GetKeyDown("e"))
+        {
+
         }
     }
 }

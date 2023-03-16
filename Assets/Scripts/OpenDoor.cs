@@ -8,15 +8,16 @@ public class OpenDoor : MonoBehaviour
 
     private void Start()
     {
-        isOpen = false;
+        //isOpen = false;
     }
 
     private void Update()
     {
-        if (isOpen)
+        if (isOpen == true)
         {
             Vector3 newRotation = new Vector3(0, 90, 0);
             transform.eulerAngles = newRotation;
+            Debug.Log("Door opens");
         }
         else
         {
