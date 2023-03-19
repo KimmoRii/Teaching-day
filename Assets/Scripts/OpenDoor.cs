@@ -20,7 +20,7 @@ public class OpenDoor : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canUseDoor = true;
-            Debug.Log("Player can operate a door.");
+            Debug.Log("Player can use a door.");
         }
     }
 
@@ -29,7 +29,7 @@ public class OpenDoor : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canUseDoor = false;
-            Debug.Log("Player cannot operate a door.");
+            Debug.Log("Player cannot use a door.");
         }
     }
 

@@ -7,14 +7,6 @@ public class PlayerPushObject : MonoBehaviour
     [SerializeField]
     private float forceMagnitude;
 
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
-
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         var rigidBody = hit.collider.attachedRigidbody;
