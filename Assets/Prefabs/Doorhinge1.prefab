@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3116937193096604926}
   - component: {fileID: 5461852837185906689}
   m_Layer: 0
-  m_Name: Doorhinge
+  m_Name: Doorhinge1
   m_TagString: Door
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

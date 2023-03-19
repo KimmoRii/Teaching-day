@@ -5,24 +5,52 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public bool isOpen;
-
-    private void Start()
-    {
-        //isOpen = false;
-    }
+    private bool canUseDoor;
 
     private void Update()
     {
-        if (isOpen == true)
+        if (canUseDoor)
         {
-            Vector3 newRotation = new Vector3(0, 90, 0);
-            transform.eulerAngles = newRotation;
-            Debug.Log("Door opens");
+            UseDoor();
         }
-        else
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            Vector3 newRotation = new Vector3(0, 0, 0);
-            transform.eulerAngles = newRotation;
+            canUseDoor = true;
+            Debug.Log("Player can operate a door.");
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            canUseDoor = false;
+            Debug.Log("Player cannot operate a door.");
+        }
+    }
+
+    private void UseDoor()
+    {
+        if (Input.GetKeyDown("e"))
+        {
+            if (isOpen == false)
+            {
+                Vector3 newRotation = new Vector3(0, 90, 0);
+                transform.eulerAngles = newRotation;
+                isOpen = true;
+                Debug.Log("Player opens a door.");
+            }
+            else
+            {
+                Vector3 newRotation = new Vector3(0, 0, 0);
+                transform.eulerAngles = newRotation;
+                isOpen = false;
+                Debug.Log("Player closes a door.");
+            }
         }
     }
 }

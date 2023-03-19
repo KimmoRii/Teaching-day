@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class BreakDoor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool isOpen;
+    private bool canBreakDoor;
+    public Rigidbody rigidBody;
+
+    private void Update()
     {
-        
+        if (canBreakDoor)
+        {
+            DetachDoor();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider collision)
     {
-        
+        if (collision.gameObject.tag == "Player")
+        {
+            canBreakDoor = true;
+            Debug.Log("Player can operate a door.");
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            canBreakDoor = false;
+            Debug.Log("Player cannot operate a door.");
+        }
+    }
+
+    private void DetachDoor()
+    {
+        if (Input.GetKeyDown("e"))
+        {
+            rigidBody.constraints = RigidbodyConstraints.None;
+        }
     }
 }
